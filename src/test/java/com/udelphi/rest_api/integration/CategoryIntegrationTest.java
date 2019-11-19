@@ -45,12 +45,24 @@ public class CategoryIntegrationTest {
     }
 
     @Test
-    @Sql({"/create_categories.sql", "/insert_categories.sql"})
+    @Sql({"/create_categories.sql",      "/insert_category.sql"})
     public void shouldReturnCategoryById(){
         given()
                 .pathParam("id", "1")
         .when()
                 .get("/categories/{id}")
+        .then()
+                .statusCode(HttpStatus.OK.value())
+                .body("name", equalTo("car"))
+                .body("id", equalTo(1));
+    }
+
+    @Test
+    @Sql({"/list_categories.sql"})
+    public void shouldReturnAllCategories(){
+        given()
+        .when()
+                .get("/categories")
         .then()
                 .statusCode(HttpStatus.OK.value())
                 .body("name", equalTo("car"))

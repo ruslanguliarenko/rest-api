@@ -1,0 +1,1 @@
+AS SELECT * FROM CSVREAD('C:\Users\User\IdeaProjects\restful-api\src\main\resources\test.csv',null,'fieldSeparator=,');

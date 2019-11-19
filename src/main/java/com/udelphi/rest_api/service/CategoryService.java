@@ -20,6 +20,7 @@ public class CategoryService {
     }
 
     public Category getCategory(int id) {
+        List<Category> categories  = categoryRepository.findAll();
         return categoryRepository.findById(id).orElseThrow(RuntimeException::new);
     }
 }
