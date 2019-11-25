@@ -11,58 +11,64 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int id;
+    private Integer id;
 
-    @Column(name = "model")
-    private String model;
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "description")
+    private String description;
 
     @Column(name = "price")
     private double price;
 
     @Column(name = "categories")
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE}, fetch = FetchType.LAZY)
     @JoinTable(name = "product_category",
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id")
     )
     private Set<Category> categories = new HashSet<>();
 
-    public Product(String model, double price, Set<Category> categories) {
-        this.model = model;
-        this.price = price;
-        this.categories = categories;
-    }
     public Product(){}
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public Set<Category> getCategories() {
-        return categories;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public void setCategories(Set<Category> categories) {
         this.categories = categories;
     }
 
-    public String getModel() {
-        return model;
+    public Integer getId() {
+        return id;
     }
 
-    public void setModel(String model) {
-        this.model = model;
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public Set<Category> getCategories() {
+        return categories;
     }
 }

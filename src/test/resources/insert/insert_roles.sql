@@ -1,0 +1,1 @@
+insert into roles(select * from CSVREAD('C:\Users\User\IdeaProjects\restful-api\src\test\resources\roles.csv'));

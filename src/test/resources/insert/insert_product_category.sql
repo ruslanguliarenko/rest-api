@@ -1,0 +1,1 @@
+insert into product_category(select * from CSVREAD('C:\Users\user\Downloads\shop\rest-api\src\test\resources\csv\product_category.csv'));

@@ -1,12 +1,11 @@
 package com.udelphi.rest_api.controller;
 
+import java.util.List;
+import com.udelphi.rest_api.dto.CategoryDto;
 import com.udelphi.rest_api.exception.EntityNotFoundException;
-import com.udelphi.rest_api.model.Category;
 import com.udelphi.rest_api.service.CategoryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/categories")
@@ -20,17 +19,17 @@ public class CategoryController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Category createCategory(@RequestBody Category category){
-        return categoryService.saveCategory(category);
+    public CategoryDto createCategory(@RequestBody CategoryDto categoryDto){
+        return categoryService.saveCategory(categoryDto);
     }
 
     @GetMapping("/{id}")
-    public Category getCategory(@PathVariable int id){
+    public CategoryDto getCategory(@PathVariable int id){
         return categoryService.getCategory(id);
     }
 
     @GetMapping
-    public List<Category> getCategories(){
+    public List<CategoryDto> getCategories(){
         return categoryService.getAllCategories();
     }
 
@@ -42,8 +41,8 @@ public class CategoryController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateCategory(@PathVariable int id, @RequestBody Category category){
-        categoryService.updateCategory(id, category);
+    public void updateCategory(@PathVariable int id, @RequestBody CategoryDto categoryDto){
+        categoryService.updateCategory(id, categoryDto);
     }
 
     @ExceptionHandler(EntityNotFoundException.class)

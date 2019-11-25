@@ -1,4 +1,3 @@
-DROP TABLE categories IF EXISTS;
 create table categories
 (
     id int auto_increment,
