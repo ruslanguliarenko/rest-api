@@ -10,15 +10,17 @@ public class RoleDto {
         return id;
     }
 
-    public void setId(Integer id) {
+    public RoleDto setId(Integer id) {
         this.id = id;
+        return this;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public RoleDto setName(String name) {
         this.name = name;
+        return this;
     }
 }

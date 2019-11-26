@@ -76,7 +76,7 @@ class CategoryIntegrationTest {
     @Test
     void shouldDeleteCategoryById() {
         given()
-                .pathParam("id", "4")
+                .pathParam("id", "1")
         .when()
                 .delete("/categories/{id}")
         .then()
@@ -126,7 +126,6 @@ class CategoryIntegrationTest {
         .then()
                 .statusCode(HttpStatus.NOT_FOUND.value())
                 .body(equalTo("Entity not found with id: 1000"));
-
     }
 
 }

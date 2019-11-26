@@ -1,8 +1,5 @@
 package com.udelphi.rest_api.integration;
 
-import java.util.Set;
-import com.udelphi.rest_api.model.Role;
-import com.udelphi.rest_api.model.User;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -28,7 +25,7 @@ public class UserIntegrationTest {
     @Test
     @Sql("/create_table_user.sql")
     public void shouldReturnUserWithId(){
-        User user = new User("John", "smth@gmail.com", Set.of(new Role("admin")));
+
     }
 
 

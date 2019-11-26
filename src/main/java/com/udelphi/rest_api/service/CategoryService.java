@@ -26,8 +26,6 @@ public class CategoryService {
     }
 
     public CategoryDto getCategory(int id) {
-
-        List<Category> categorys = categoryRepository.findAll();
         return categoryRepository.findById(id)
                 .map(category -> modelMapper.map(category, CategoryDto.class))
                 .orElseThrow(() -> new EntityNotFoundException("Entity not found with id: " + id));

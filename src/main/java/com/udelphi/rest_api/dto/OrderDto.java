@@ -16,31 +16,35 @@ public class OrderDto {
         return id;
     }
 
-    public void setId(Integer id) {
+    public OrderDto setId(Integer id) {
         this.id = id;
+        return this;
     }
 
     public UserDto getClient() {
         return client;
     }
 
-    public void setClient(UserDto client) {
+    public OrderDto setClient(UserDto client) {
         this.client = client;
+        return this;
     }
 
     public Date getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(Date orderDate) {
+    public OrderDto setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
+        return this;
     }
 
-    public Set<OrderItemDto> getOrderItemDto() {
+    public Set<OrderItemDto> getOrderItems() {
         return orderItems;
     }
 
-    public void setOrderItemDto(Set<OrderItemDto> orderItems) {
+    public OrderDto setOrderItems(Set<OrderItemDto> orderItems) {
         this.orderItems = orderItems;
+        return this;
     }
 }

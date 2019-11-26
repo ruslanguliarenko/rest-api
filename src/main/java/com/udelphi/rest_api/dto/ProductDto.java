@@ -13,9 +13,17 @@ public class ProductDto {
 
     public ProductDto(){}
 
+    public int getId() {
+        return id;
+    }
+
     public ProductDto setId(int id) {
         this.id = id;
         return this;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public ProductDto setName(String name) {
@@ -23,9 +31,17 @@ public class ProductDto {
         return this;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     public ProductDto setDescription(String description) {
         this.description = description;
         return this;
+    }
+
+    public double getPrice() {
+        return price;
     }
 
     public ProductDto setPrice(double price) {
@@ -33,28 +49,12 @@ public class ProductDto {
         return this;
     }
 
+    public Set<CategoryDto> getCategories() {
+        return categories;
+    }
+
     public ProductDto setCategories(Set<CategoryDto> categories) {
         this.categories = categories;
         return this;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public Set<CategoryDto> getCategories() {
-        return categories;
     }
 }

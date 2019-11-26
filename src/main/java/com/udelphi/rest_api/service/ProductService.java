@@ -21,6 +21,7 @@ public class ProductService {
 
 
     public ProductDto saveProduct(ProductDto productDto) {
+
         Product saveProduct = productRepository.save(modelMapper.map(productDto, Product.class));
         return modelMapper.map(saveProduct, ProductDto.class);
     }
@@ -41,8 +42,7 @@ public class ProductService {
     }
 
     public void deleteById(int id) {
-        productRepository.findById(id).ifPresentOrElse(productRepository::delete,
-                () -> {throw new EntityNotFoundException("Entity not found with id: " + id);});
+        productRepository.deleteById(id);
     }
 
     public void updateProduct(int id, ProductDto productDto) {

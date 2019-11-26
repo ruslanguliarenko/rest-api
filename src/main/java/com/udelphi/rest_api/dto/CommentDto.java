@@ -13,39 +13,44 @@ public class CommentDto {
         return id;
     }
 
-    public void setId(Integer id) {
+    public CommentDto setId(Integer id) {
         this.id = id;
+        return this;
     }
 
     public String getText() {
         return text;
     }
 
-    public void setText(String text) {
+    public CommentDto setText(String text) {
         this.text = text;
+        return this;
     }
 
     public UserDto getUser() {
         return user;
     }
 
-    public void setUser(UserDto user) {
+    public CommentDto setUser(UserDto user) {
         this.user = user;
+        return this;
     }
 
     public ProductDto getProduct() {
         return product;
     }
 
-    public void setProduct(ProductDto product) {
+    public CommentDto setProduct(ProductDto product) {
         this.product = product;
+        return this;
     }
 
     public CommentDto getComment() {
         return comment;
     }
 
-    public void setComment(CommentDto comment) {
+    public CommentDto setComment(CommentDto comment) {
         this.comment = comment;
+        return this;
     }
 }

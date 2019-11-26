@@ -1,7 +1,8 @@
 package com.udelphi.rest_api.controller;
 
 import java.util.List;
-import com.udelphi.rest_api.model.Role;
+import com.udelphi.rest_api.dto.RoleDto;
+import com.udelphi.rest_api.exception.EntityNotFoundException;
 import com.udelphi.rest_api.service.RoleService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -18,30 +19,36 @@ public class RoleController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Role saveRole(@RequestBody Role role){
-        return roleService.saveRole(role);
+    public RoleDto createRole(@RequestBody RoleDto roleDto){
+        return roleService.saveRole(roleDto);
     }
 
     @GetMapping("/{id}")
-    public Role getCategory(@PathVariable int id){
-        return roleService.getCategory(id);
+    public RoleDto getRole(@PathVariable int id){
+        return roleService.getRole(id);
     }
 
     @GetMapping
-    public List<Role>  getAllRoles(){
-        return roleService.getAllRole();
-    }
-
-    @PutMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateRole(@PathVariable int id, @RequestBody Role role){
-        roleService.updateRole(id, role);
+    public List<RoleDto> getCategories(){
+        return roleService.getAllCategories();
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteRole(@PathVariable int id){
-        roleService.deleteRole(id);
+        roleService.deleteById(id);
+    }
+
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updateRole(@PathVariable int id, @RequestBody RoleDto roleDto){
+        roleService.updateRole(id, roleDto);
+    }
+
+    @ExceptionHandler(EntityNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public @ResponseBody String handleException(EntityNotFoundException exception) {
+        return exception.getMessage();
     }
 
 

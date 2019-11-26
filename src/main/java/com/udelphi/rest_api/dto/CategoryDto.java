@@ -7,21 +7,21 @@ public class CategoryDto {
 
     public CategoryDto(){}
 
+    public Integer getId() {
+        return id;
+    }
+
     public CategoryDto setId(Integer id) {
         this.id = id;
         return this;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public CategoryDto setName(String name) {
         this.name = name;
         return this;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
     }
 }

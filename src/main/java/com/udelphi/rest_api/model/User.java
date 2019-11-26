@@ -15,7 +15,7 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<UserRole> roles;
 
     public User(String name, String email, Set<UserRole> roles) {

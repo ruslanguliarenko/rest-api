@@ -9,36 +9,41 @@ public class UserDto {
     private String email;
     private Set<RoleDto> roles;
 
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    public UserDto(){}
 
     public Integer getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public UserDto setId(Integer id) {
         this.id = id;
+        return this;
     }
 
-    public Set<RoleDto> getRoles() {
-        return roles;
+    public String getName() {
+        return name;
     }
 
-    public void setRoles(Set<RoleDto> roles) {
-        this.roles = roles;
+    public UserDto setName(String name) {
+        this.name = name;
+        return this;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public UserDto setEmail(String email) {
         this.email = email;
+        return this;
+    }
+
+    public Set<RoleDto> getRoles() {
+        return roles;
+    }
+
+    public UserDto setRoles(Set<RoleDto> roles) {
+        this.roles = roles;
+        return this;
     }
 }

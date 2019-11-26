@@ -83,7 +83,6 @@ class ProductIntegrationTest {
                 .then()
                 .statusCode(HttpStatus.OK.value())
                 .body("size()", is(4));
-
     }
 
     @Test
@@ -96,16 +95,6 @@ class ProductIntegrationTest {
                 .statusCode(HttpStatus.NO_CONTENT.value());
     }
 
-    @Test
-    void shouldThrowExceptionWhenDeleteProductThenIdNotFound() {
-        given()
-                .pathParam("id", "1000")
-        .when()
-                .delete("/products/{id}")
-        .then()
-                .statusCode(HttpStatus.NOT_FOUND.value())
-                .body(equalTo("Entity not found with id: 1000"));
-    }
 
     @Test
     void shouldUpdateProductById() {
@@ -139,7 +128,6 @@ class ProductIntegrationTest {
         .then()
                 .statusCode(HttpStatus.NOT_FOUND.value())
                 .body(equalTo("Entity not found with id: 1000"));
-
     }
 
 }

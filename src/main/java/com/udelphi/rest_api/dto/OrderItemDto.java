@@ -6,27 +6,30 @@ public class OrderItemDto {
     private Integer quantity;
     public OrderItemDto(){}
 
-    public OrderDto getOrderDto() {
+    public OrderDto getOrder() {
         return order;
     }
 
-    public void setOrderDto(OrderDto order) {
+    public OrderItemDto setOrder(OrderDto order) {
         this.order = order;
+        return this;
     }
 
-    public ProductDto getProductDto() {
+    public ProductDto getProduct() {
         return product;
     }
 
-    public void setProductDto(ProductDto product) {
+    public OrderItemDto setProduct(ProductDto product) {
         this.product = product;
+        return this;
     }
 
     public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public OrderItemDto setQuantity(Integer quantity) {
         this.quantity = quantity;
+        return this;
     }
 }

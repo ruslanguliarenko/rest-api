@@ -2,7 +2,6 @@ package com.udelphi.rest_api.controller;
 
 import java.util.List;
 import com.udelphi.rest_api.dto.ProductDto;
-import com.udelphi.rest_api.dto.ProductDto;
 import com.udelphi.rest_api.exception.EntityNotFoundException;
 import com.udelphi.rest_api.service.ProductService;
 import org.springframework.http.HttpStatus;

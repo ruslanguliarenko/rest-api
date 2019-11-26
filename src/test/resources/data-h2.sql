@@ -14,6 +14,7 @@ insert into  product_category(product_id, category_id) values ( 3, 2 );
 
 insert into roles(id, name) values ( 1, 'client' );
 insert into roles(id, name) values ( 2, 'admin' );
+insert into roles(id, name) values ( 3, 'user' );
 
 insert into users(id, name, email) values ( 1, 'John', 'john@gmail.com' );
 insert into users(id, name, email) values ( 2, 'Vasya', 'vasya@gmail.com' );
