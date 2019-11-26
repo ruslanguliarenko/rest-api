@@ -1,5 +1,6 @@
 package com.udelphi.rest_api.dto;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class ProductDto {
@@ -8,7 +9,7 @@ public class ProductDto {
     private String name;
     private String description;
     private double price;
-    private Set<CategoryDto> categories;
+    private Set<CategoryDto> categories = new HashSet<>();
 
     public ProductDto(){}
 

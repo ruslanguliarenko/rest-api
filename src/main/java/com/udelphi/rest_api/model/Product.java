@@ -22,15 +22,26 @@ public class Product {
     @Column(name = "price")
     private double price;
 
-    @Column(name = "categories")
-    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE}, fetch = FetchType.LAZY)
-    @JoinTable(name = "product_category",
-            joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "category_id")
-    )
-    private Set<Category> categories = new HashSet<>();
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<ProductCategory> categories = new HashSet<>();
+
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Comment> comments = new HashSet<>();
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<OrderItem> orderItems = new HashSet<>();
 
     public Product(){}
+
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
+    }
 
     public void setId(Integer id) {
         this.id = id;
@@ -48,7 +59,7 @@ public class Product {
         this.price = price;
     }
 
-    public void setCategories(Set<Category> categories) {
+    public void setCategories(Set<ProductCategory> categories) {
         this.categories = categories;
     }
 
@@ -68,7 +79,7 @@ public class Product {
         return price;
     }
 
-    public Set<Category> getCategories() {
+    public Set<ProductCategory> getCategories() {
         return categories;
     }
 }

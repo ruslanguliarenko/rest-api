@@ -1,7 +1,18 @@
 
 create sequence if not exists hibernate_sequence start with 100;
 
-create table if not exists categories
+
+drop table if exists product_category;
+drop table if exists order_items;
+drop table if exists user_role;
+drop table if exists categories;
+drop table if exists comments;
+drop table if exists products;
+drop table if exists orders;
+drop table if exists roles;
+drop table if exists users;
+
+create table categories
 (
     id   int auto_increment,
     name varchar(255),
@@ -10,7 +21,7 @@ create table if not exists categories
         primary key (id)
 );
 
-create table if not exists products
+create table products
 (
     id          int auto_increment,
     name        varchar(255),
@@ -21,7 +32,7 @@ create table if not exists products
         primary key (id)
 );
 
-create table if not exists product_category
+create table  product_category
 (
     product_id  int,
     category_id int ,
@@ -34,7 +45,7 @@ create table if not exists product_category
         foreign key (product_id) references products (id) on delete cascade
 );
 
-create table if not exists roles
+create table  roles
 (
     id   int auto_increment,
     name varchar(255),
@@ -43,7 +54,7 @@ create table if not exists roles
         primary key (id)
 );
 
-create table if not exists users
+create table  users
 (
     id    int auto_increment,
     name  varchar(255),
@@ -53,7 +64,7 @@ create table if not exists users
         primary key (id)
 );
 
-create table if not exists user_role
+create table user_role
 (
     user_id int,
     role_id int,
@@ -66,7 +77,7 @@ create table if not exists user_role
         foreign key (user_id) references users (id)
 );
 
-create table if not exists comments
+create table comments
 (
     id         int auto_increment,
     text       varchar(255),
@@ -84,11 +95,10 @@ create table if not exists comments
         foreign key (comment_id) references comments (id)
 );
 
-
-create table if not exists orders
+create table  orders
 (
     id        int auto_increment,
-    orderDate date,
+    order_date date,
     client_id int not null,
 
     constraint order_pk
@@ -97,7 +107,7 @@ create table if not exists orders
         foreign key (client_id) references users (id)
 );
 
-create table if not exists order_items
+create table  order_items
 (
     order_id   int not null,
     product_id int not null,

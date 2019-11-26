@@ -1,9 +1,13 @@
 package com.udelphi.rest_api.dto;
 
+import java.util.Set;
+
 public class UserDto {
+
+    private Integer id;
     private String name;
     private String email;
-    private String roles;
+    private Set<RoleDto> roles;
 
 
     public String getName() {
@@ -14,11 +18,19 @@ public class UserDto {
         this.name = name;
     }
 
-    public String getRoles() {
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Set<RoleDto> getRoles() {
         return roles;
     }
 
-    public void setRoles(String roles) {
+    public void setRoles(Set<RoleDto> roles) {
         this.roles = roles;
     }
 

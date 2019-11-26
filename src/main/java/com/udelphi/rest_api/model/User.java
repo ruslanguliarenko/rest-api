@@ -1,7 +1,8 @@
 package com.udelphi.rest_api.model;
 
-import javax.persistence.*;
 import java.util.Set;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
@@ -13,14 +14,11 @@ public class User {
     private String name;
     @Column(name = "email")
     private String email;
-    @Column(name = "roles")
-    @ManyToMany
-    @JoinTable(name = "user_role",
-            joinColumns = @JoinColumn (name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles;
 
-    public User(String name, String email, Set<Role> roles) {
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Set<UserRole> roles;
+
+    public User(String name, String email, Set<UserRole> roles) {
         this.name = name;
         this.email = email;
         this.roles = roles;
@@ -43,7 +41,19 @@ public class User {
         return email;
     }
 
-    public Set<Role> getRoles() {
+    public Set<UserRole> getRoles() {
         return roles;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setRoles(Set<UserRole> roles) {
+        this.roles = roles;
     }
 }
